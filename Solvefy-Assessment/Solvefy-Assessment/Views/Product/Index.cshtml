@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Solvefy_Assessment.Models.Product>
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<User> _userManager
+@{
+    var user = await _userManager.GetUserAsync(User);
+    bool isAdmin = user != null && await _userManager.IsInRoleAsync(user, "Admin");
+}
+
+<h2>Product List</h2>
+
+@if (isAdmin)
+{
+    <p>
+        <a asp-action="Create" asp-controller="Product" class="btn btn-primary">Create New</a>
+    </p>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Price.ToString("C")</td>
+                <td>@item.Stock</td>
+                <td>
+                    <form asp-action="Edit" asp-route-id="@item.Id" method="get" class="d-inline">
+                        <button type="submit" class="btn btn-warning">Edit</button>
+                    </form> |
+                    <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this product?');">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

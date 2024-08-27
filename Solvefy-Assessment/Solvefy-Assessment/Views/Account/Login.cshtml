@@ -1,0 +1,30 @@
+﻿@model Solvefy_Assessment.ViewModels.LoginViewModel
+
+
+<h2>@ViewData["Title"]</h2>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 50vh;">
+    <div class="card shadow-lg" style="width: 25rem;">
+        <div class="card-body">
+            <h4 class="card-title text-center">Login</h4>
+            <form asp-action="Login">
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" type="password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-check">
+                    <input asp-for="RememberMe" class="form-check-input" />
+                    <label asp-for="RememberMe" class="form-check-label"></label>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+

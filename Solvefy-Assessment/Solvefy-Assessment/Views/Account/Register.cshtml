@@ -1,0 +1,66 @@
+﻿@model Solvefy_Assessment.ViewModels.RegisterViewModel
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 60vh;">
+    <div class="card shadow-lg" style="width: 30rem;">
+        <div class="card-body">
+            <h4 class="card-title text-center">Add New User</h4>
+            <form asp-action="Register" onsubmit="return validatePassword();">
+                <div class="form-group">
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" id="password" class="form-control" type="password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input asp-for="ConfirmPassword" id="confirmPassword" class="form-control" type="password" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary w-100">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function validatePassword() {
+        const password = document.getElementById('password').value;
+        const minLength = 8;
+        const hasLowerCase = /[a-z]/.test(password);
+        const hasNumber = /\d/.test(password);
+
+        if (password.length < minLength) {
+            alert('Password must be at least ' + minLength + ' characters long.');
+            return false;
+        }
+
+        if (!hasLowerCase) {
+            alert('Password must contain at least one lowercase letter.');
+            return false;
+        }
+
+        if (!hasNumber) {
+            alert('Password must contain at least one numeric character.');
+            return false;
+        }
+
+        return true;
+    }
+</script>
