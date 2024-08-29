@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Solvefy-Assessment")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+65518a7d5d03b26e00b039167b5de913b944ab44")]
 [assembly: System.Reflection.AssemblyProductAttribute("Solvefy-Assessment")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Solvefy-Assessment")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

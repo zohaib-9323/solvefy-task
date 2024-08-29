@@ -436,3 +436,4 @@ C:\Users\DELL\source\repos\solvefy-task\Solvefy-Assessment\Solvefy-Assessment\ob
 C:\Users\DELL\source\repos\solvefy-task\Solvefy-Assessment\Solvefy-Assessment\obj\Debug\net8.0\Solvefy-Assessment.pdb
 C:\Users\DELL\source\repos\solvefy-task\Solvefy-Assessment\Solvefy-Assessment\obj\Debug\net8.0\Solvefy-Assessment.genruntimeconfig.cache
 C:\Users\DELL\source\repos\solvefy-task\Solvefy-Assessment\Solvefy-Assessment\obj\Debug\net8.0\ref\Solvefy-Assessment.dll
+C:\Users\DELL\source\repos\solvefy-task\Solvefy-Assessment\Solvefy-Assessment\obj\Debug\net8.0\Solvefy-Assessment.sourcelink.json

@@ -17,5 +17,7 @@ namespace Solvefy_Assessment.ViewModels
         [DataType(DataType.Password)]
         [Compare("Password")]
         public string ConfirmPassword { get; set; } = default!;
+
+        public string Role { get; set; }
     }
 }

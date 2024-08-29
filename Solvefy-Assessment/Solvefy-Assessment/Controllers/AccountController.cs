@@ -27,9 +27,31 @@ namespace Solvefy_Assessment.Controllers
         {
             if (ModelState.IsValid)
             {
-  //  var user = new User { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Role = "Admin" };
+                User user;
+                if (model.Role == "Admin")
+                {
+                    user = new User
+                    {
+                        UserName = model.Email,
+                        Email = model.Email,
+                        FirstName = model.FirstName,
+                        LastName = model.LastName,
+                        Role = "Admin"
+                    };
+                }
+                else
+                {
+                    user = new User
+                    {
+                        UserName = model.Email,
+                        Email = model.Email,
+                        FirstName = model.FirstName,
+                        LastName = model.LastName,
+                        Role = "User"
+                    };
+                }
 
-                var user = new User { UserName = model.Email, Email = model.Email ,FirstName = model.FirstName,LastName = model.LastName, Role = "User"};
+
                 var result = await _userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)

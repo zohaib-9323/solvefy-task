@@ -24,7 +24,8 @@ public class ProductController : Controller
     public async Task<IActionResult> Create()
     {
         var user = await _userManager.GetUserAsync(User);
-        if (user == null || !(await _userManager.IsInRoleAsync(user, "Admin")))
+        var userRole = await _userManager.FindByIdAsync(user.Id);
+        if (user == null || !(userRole.Role == "Admin"))
         {
             return RedirectToAction("Index", "Product");
         }
@@ -34,7 +35,7 @@ public class ProductController : Controller
 
 
     [HttpPost]
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Create(Product product)
     {
         if (ModelState.IsValid)

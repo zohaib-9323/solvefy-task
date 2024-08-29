@@ -3,7 +3,8 @@
 @inject UserManager<User> _userManager
 @{
     var user = await _userManager.GetUserAsync(User);
-    bool isAdmin = user != null && await _userManager.IsInRoleAsync(user, "Admin");
+    var userRole = await _userManager.FindByIdAsync(user.Id);
+    var isAdmin = user != null && userRole.Role == "Admin";
 }
 
 <h2>Product List</h2>
@@ -14,6 +15,8 @@
         <a asp-action="Create" asp-controller="Product" class="btn btn-primary">Create New</a>
     </p>
 }
+
+
 
 <table class="table">
     <thead>
